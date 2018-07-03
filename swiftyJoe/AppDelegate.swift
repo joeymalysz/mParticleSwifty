@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MParticle.sharedInstance().start(with: mParticleOptions)
         let identityRequest = MPIdentityApiRequest.withEmptyUser()
         //the MPIdentityApiRequest provides convenience methods for common identity types
-        identityRequest.email = mixpanel.distinctId
         identityRequest.customerId = mixpanel.distinctId
         //alternatively, you can use the setUserIdentity method and supply the MPUserIdentity type
         identityRequest.setUserIdentity(mixpanel.distinctId, identityType: MPUserIdentity.other)
@@ -93,6 +92,7 @@ extension MixpanelTweaks {
     public static let intTweak =
         Tweak(tweakName: "intTweak",
               defaultValue: 10, min: 0)
+    //boolTweak used in POC
     public static let boolTweak =
         Tweak(tweakName: "boolTweak",
               defaultValue: true)
