@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Mixpanel
+import mParticle_Apple_SDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +17,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // INITIALIZE MIXPANEL AND IDENTIFY BY DISTINCT_ID
+        
+        Mixpanel.initialize(token:"d58acaea9e48a1728aa6ad5618402842");
+        
+        //declare Tweaks
+        let allTweaks: [TweakClusterType] =
+            [MixpanelTweaks.floatTweak,
+             MixpanelTweaks.intTweak,
+             MixpanelTweaks.boolTweak,
+             MixpanelTweaks.stringTweak]
+        MixpanelTweaks.setTweaks(tweaks: allTweaks)
+        let mixpanel = Mixpanel.mainInstance()
+        mixpanel.identify(distinctId: mixpanel.distinctId)
+        
+        // INITIALIZE MPARTICLE
+        let mParticleOptions = MParticleOptions(key: "8773e49bf04b424796bfc631a465e6bd", secret: "z2WYKF7FhmZGogh-q6jw_hXi4iEyWn8jQGenwaBEbfQwmroZkahlVYh-NXDit-Dt")
+        
+        //CREATE IDENTITY OBJECT
+        let request = MPIdentityApiRequest()
+        request.email = "email@example.com"
+        mParticleOptions.identifyRequest = request
+        mParticleOptions.onIdentifyComplete = { (apiResult, error) in
+            NSLog("Identify complete. userId = %@ error = %@", apiResult?.user.userId.stringValue ?? "Null User ID", error?.localizedDescription ?? "No Error Available")
+        }
+        
+        //Start the SDK
+        MParticle.sharedInstance().start(with: mParticleOptions)
+        let identityRequest = MPIdentityApiRequest.withEmptyUser()
+        //the MPIdentityApiRequest provides convenience methods for common identity types
+        identityRequest.email = mixpanel.distinctId
+        identityRequest.customerId = mixpanel.distinctId
+        //alternatively, you can use the setUserIdentity method and supply the MPUserIdentity type
+        identityRequest.setUserIdentity(mixpanel.distinctId, identityType: MPUserIdentity.other)
+        MParticle.sharedInstance().identity.identify(identityRequest, completion: {(apiResult, error) -> Void in
+            if ((error) != nil) {
+                //retry the request or otherwise handle the error, see below
+            } else {
+                //Continue with login, and you can also access the new/updated user:
+                var user = apiResult?.user
+            }
+        })
+        MParticle.sharedInstance().logEvent("Food order", eventType: MPEventType.transaction, eventInfo: nil)
         return true
     }
 
@@ -43,4 +86,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
+extension MixpanelTweaks {
+    public static let floatTweak =
+        Tweak(tweakName: "floatTweak",
+              defaultValue: 20.5, min: 0, max: 30.1)
+    public static let intTweak =
+        Tweak(tweakName: "intTweak",
+              defaultValue: 10, min: 0)
+    public static let boolTweak =
+        Tweak(tweakName: "boolTweak",
+              defaultValue: true)
+    public static let stringTweak =
+        Tweak(tweakName: "stringTweak",
+              defaultValue: "hello")
+}

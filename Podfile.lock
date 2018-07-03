@@ -1,0 +1,24 @@
+PODS:
+  - Mixpanel-swift (2.4.4):
+    - Mixpanel-swift/Complete (= 2.4.4)
+  - Mixpanel-swift/Complete (2.4.4)
+  - mParticle-Apple-SDK (7.4.1):
+    - mParticle-Apple-SDK/mParticle (= 7.4.1)
+  - mParticle-Apple-SDK/mParticle (7.4.1)
+
+DEPENDENCIES:
+  - Mixpanel-swift
+  - mParticle-Apple-SDK (~> 7)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Mixpanel-swift
+    - mParticle-Apple-SDK
+
+SPEC CHECKSUMS:
+  Mixpanel-swift: 1908db7a972b362fcab1a0c3b37ec6087b95d8d9
+  mParticle-Apple-SDK: 0af23d672ac3992fc98bc1ea48f39cfb6f710c56
+
+PODFILE CHECKSUM: 1a35f5e620a62434d9fb29904b20875add8a8bfc
+
+COCOAPODS: 1.5.3

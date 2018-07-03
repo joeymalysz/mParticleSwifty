@@ -12,9 +12,11 @@
 		47AC712F1E255A680061260E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47AC712D1E255A680061260E /* Main.storyboard */; };
 		47AC71311E255A680061260E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47AC71301E255A680061260E /* Assets.xcassets */; };
 		47AC71341E255A680061260E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47AC71321E255A680061260E /* LaunchScreen.storyboard */; };
+		8DF336DA3A15E11FB41397D7 /* Pods_swiftyJoe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4CFC94BFC4D1474309361E /* Pods_swiftyJoe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B4CFC94BFC4D1474309361E /* Pods_swiftyJoe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftyJoe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47AC71261E255A680061260E /* swiftyJoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyJoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47AC71291E255A680061260E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47AC712B1E255A680061260E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		47AC71301E255A680061260E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47AC71331E255A680061260E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47AC71351E255A680061260E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5BC319EAD0878197CFBAB29 /* Pods-swiftyJoe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftyJoe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftyJoe/Pods-swiftyJoe.debug.xcconfig"; sourceTree = "<group>"; };
+		BF0549B0C07F0C643D8C72C9 /* Pods-swiftyJoe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftyJoe.release.xcconfig"; path = "Pods/Target Support Files/Pods-swiftyJoe/Pods-swiftyJoe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DF336DA3A15E11FB41397D7 /* Pods_swiftyJoe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				47AC71281E255A680061260E /* swiftyJoe */,
 				47AC71271E255A680061260E /* Products */,
+				B9F4192D312722D4245E348E /* Pods */,
+				E24AF066642C97A646732025 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = swiftyJoe;
 			sourceTree = "<group>";
 		};
+		B9F4192D312722D4245E348E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5BC319EAD0878197CFBAB29 /* Pods-swiftyJoe.debug.xcconfig */,
+				BF0549B0C07F0C643D8C72C9 /* Pods-swiftyJoe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E24AF066642C97A646732025 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B4CFC94BFC4D1474309361E /* Pods_swiftyJoe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47AC71381E255A680061260E /* Build configuration list for PBXNativeTarget "swiftyJoe" */;
 			buildPhases = (
+				CBBB7A4E66E4D3241FFB85F3 /* [CP] Check Pods Manifest.lock */,
 				47AC71221E255A680061260E /* Sources */,
 				47AC71231E255A680061260E /* Frameworks */,
 				47AC71241E255A680061260E /* Resources */,
+				F6A69D592F292B5AE283A351 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +157,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CBBB7A4E66E4D3241FFB85F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swiftyJoe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6A69D592F292B5AE283A351 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-swiftyJoe/Pods-swiftyJoe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel-swift/Mixpanel.framework",
+				"${BUILT_PRODUCTS_DIR}/mParticle-Apple-SDK/mParticle_Apple_SDK.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mParticle_Apple_SDK.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swiftyJoe/Pods-swiftyJoe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		47AC71221E255A680061260E /* Sources */ = {
@@ -259,6 +326,7 @@
 		};
 		47AC71391E255A680061260E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5BC319EAD0878197CFBAB29 /* Pods-swiftyJoe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NQJ73Y7463;
@@ -266,12 +334,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JMalysz.swiftyJoe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		47AC713A1E255A680061260E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF0549B0C07F0C643D8C72C9 /* Pods-swiftyJoe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NQJ73Y7463;
@@ -279,7 +348,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JMalysz.swiftyJoe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -302,6 +371,7 @@
 				47AC713A1E255A680061260E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
